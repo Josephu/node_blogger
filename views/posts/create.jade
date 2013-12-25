@@ -1,0 +1,14 @@
+extend ../layout
+
+block content
+  form(method="post", action="/posts/create") 
+    if invalid
+      .error Please enter valid content
+    ul
+      li
+        label(for="title") Title
+        input#title(name="title")
+      li
+        label(for="body") Body
+        textarea#body(name="body")
+    input(type="submit", value="create")

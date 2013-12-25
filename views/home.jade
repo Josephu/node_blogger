@@ -1,0 +1,15 @@
+extend layout
+
+block content
+  //if session.isLoggedIn
+  p
+    a(href="/posts/create") New Post
+  if !(posts && posts.length)
+    p Nothing to see here ...
+  else
+    ul.posts
+      each post in posts
+        li
+          h2
+            a(href="/posts/#{post.id}")= post.title
+

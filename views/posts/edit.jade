@@ -1,0 +1,14 @@
+extend ../layout
+
+block content
+  form(method="post", action="/posts/edit/"+post._id) 
+    if invalid
+      .error Please enter valid content
+    ul
+      li
+        label(for="title") Title
+        input#title(name="title", value=post.title)
+      li
+        label(for="body") Body
+        textarea#body(name="body")= post.body
+    input(type="submit", value="edit")

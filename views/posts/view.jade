@@ -1,0 +1,13 @@
+extend ../layout
+
+block content
+  p= post.title
+  p= post.body
+  p= post.created
+  p
+    | By 
+    = post.author.name.first + ' ' + post.author.name.last
+  if can_edit
+    a(href="/posts/edit/"+post._id) Edit
+    | |
+    a(href="/posts/delete/"+post._id) Delete

@@ -1,0 +1,30 @@
+extend layout
+
+block content
+  form(method="post", action="/signup", enctype="application/x-www-form-url-encoded")
+    h3 Signup
+    if exists
+      .error
+        | That user exists. Are you trying to
+        a(href="/login") Login
+        | ?
+    if invalid
+      .error
+        | Please enter a valid email or password
+    ul
+      li
+        label(for="email") Email
+        input#email(name="email", type="email")
+      li
+        label(for="password") Password
+        input#password(name="password", type="password")
+      li
+        label(for="password_confirmation") Password Confirmationa
+        input#password_confirmation(name="password_confirmation", type="password")
+      li
+        label(for="first") First Name
+        input#first(name="first")
+      li
+        label(for="last") Last Name
+        input#last(name="last")
+    input(type="submit", value="Sign Up")
